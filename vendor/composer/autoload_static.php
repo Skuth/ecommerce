@@ -6,8 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit80d5cc9262ba9d034ea4671da1e91827
 {
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/skuth/php-classes/src',
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Skuth\\' => 6,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Skuth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/skuth/php-classes/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -41,7 +51,8 @@ class ComposerStaticInit80d5cc9262ba9d034ea4671da1e91827
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->fallbackDirsPsr4 = ComposerStaticInit80d5cc9262ba9d034ea4671da1e91827::$fallbackDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit80d5cc9262ba9d034ea4671da1e91827::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit80d5cc9262ba9d034ea4671da1e91827::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit80d5cc9262ba9d034ea4671da1e91827::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit80d5cc9262ba9d034ea4671da1e91827::$classMap;
 
