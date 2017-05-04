@@ -2,11 +2,21 @@
 
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim();
+use \Slim\Slim;
+use \Skuth\Page;
+
+$app = new Slim();
+
 $app->config('debug', true);
+
 $app->get('/', function(){
-  $sql = new Skuth\DB\Sql();
+ 
+	$page = new Page();
+	
+	$page->setTpl("index");
+
 });
+
 $app->run();
 
 ?>
