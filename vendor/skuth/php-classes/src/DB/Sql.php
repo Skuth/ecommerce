@@ -14,10 +14,7 @@ class Sql
 
   public function __construct()
   {
-    $this->conn = new \PDO(
-      "mysql:host=".self::HOSTNAME.";dbname=".self::DBNAME,
-      self::USERNAME,
-      self::PASSWORD);
+    $this->conn = new \PDO("mysql:host=".self::HOSTNAME.";dbname=".self::DBNAME, self::USERNAME, self::PASSWORD);
   }
 
   public function setParams($statement, $parameters = array())

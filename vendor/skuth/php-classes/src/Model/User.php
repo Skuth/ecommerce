@@ -152,11 +152,7 @@ class User extends Model
 
 		$sql = new Sql();
 
-		$results = $sql->select("
-			SELECT *
-			FROM tb_persons a
-			INNER JOIN tb_users b USING(idperson)
-			WHERE a.desemail = :email;",
+		$results = $sql->select("SELECT * FROM tb_persons a INNER JOIN tb_users b USING(idperson) WHERE a.desemail = :email;",
 		array(
 			":email"=>$email
 		));

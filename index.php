@@ -6,6 +6,7 @@ use \Slim\Slim;
 use \Skuth\Page;
 use \Skuth\PageAdmin;
 use \Skuth\Model\User;
+use \Skuth\Model\Category;
 
 $app = new Slim();
 
@@ -205,6 +206,20 @@ $app->post("/admin/forgot/reset", function() {
 	]);
 
   $page->setTpl("forgot-reset-success");
+
+});
+
+$app->get("/admin/categories", function() {
+
+  User::verifyLogin();
+
+  $categories = Category::listAll();
+
+  $page = new PageAdmin();
+
+  $page->setTpl("categories", array(
+    "categories"=>$categories
+  ));
 
 });
 
