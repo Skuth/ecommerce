@@ -17,6 +17,17 @@ class Product extends Model
 
 	}
 
+	public static function checkList($list)
+	{
+		foreach ($list as &$row) {
+			$p = new Product();
+			$p->setData($row);
+			$row = $p->getValues();
+		}
+
+		return $list;
+	}
+
 	public function save()
 	{
 
@@ -100,11 +111,11 @@ class Product extends Model
 				break;
 			
 			case 'gif':
-				$image = imagecreatefromgif($file['tpm_name']);
+				$image = imagecreatefromgif($file['tmp_name']);
 				break;
 
 			case 'png':
-				$image = imagecreatefrompng($file['tpm_name']);
+				$image = imagecreatefrompng($file['tmp_name']);
 				break;
 		}
 
